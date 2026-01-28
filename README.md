@@ -29,6 +29,12 @@ Le projet est composé de deux modules principaux :
 2. Accepter l'ouverture dans le devcontainer
 3. Les dépendances seront installées automatiquement
 
+**Note :** Le projet utilise des volumes Docker pour mettre en cache :
+- Les packages Python (pip cache) - accélère les rebuilds
+- Les modèles Whisper - évite les re-téléchargements
+
+Voir `.devcontainer/CACHE.md` pour plus de détails.
+
 ## Utilisation
 
 ### Module Radio Listener

@@ -3,6 +3,10 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
+  "mounts": [
+    "source=radio-pip-cache,target=/home/vscode/.cache/pip,type=volume",
+    "source=radio-whisper-cache,target=/home/vscode/.cache/whisper,type=volume"
+  ],
   "customizations": {
     "vscode": {
       "extensions": [
