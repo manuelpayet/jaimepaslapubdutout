@@ -1,0 +1,150 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Radio Listener",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.radio_listener.main",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "--rtsp-url",
+                "rtsp://example.com/stream",
+                "--block-duration",
+                "10",
+                "--whisper-model",
+                "base",
+                "--language",
+                "fr"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": true
+        },
+        {
+            "name": "Radio Listener (custom URL)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.radio_listener.main",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "--rtsp-url",
+                "${input:rtspUrl}",
+                "--block-duration",
+                "10"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": true
+        },
+        {
+            "name": "Classifier - List Sessions",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.classifier.main",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "--list"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": true
+        },
+        {
+            "name": "Classifier - Annotate Session",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.classifier.main",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "${input:sessionId}"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": true
+        },
+        {
+            "name": "Classifier - Convert All",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.classifier.main",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "--convert-all"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Tests",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "-v",
+                "--no-cov",
+                "${file}"
+            ],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": false
+        },
+        {
+            "name": "Python: All Tests",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "-v",
+                "--no-cov",
+                "tests/"
+            ],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": false
+        }
+    ],
+    "inputs": [
+        {
+            "id": "rtspUrl",
+            "type": "promptString",
+            "description": "Enter RTSP stream URL",
+            "default": "rtsp://example.com/stream"
+        },
+        {
+            "id": "sessionId",
+            "type": "promptString",
+            "description": "Enter session ID to annotate",
+            "default": "session_2026-01-28_14-30-00"
+        }
+    ]
+}

@@ -28,5 +28,5 @@ Le code doit être couvert par des tests unitaires afin de s'assurer que les nou
     - A classifier (la catégorie par défaut)
     - Publicité
     - Radio
-    - Impossible à déterminer
+    - Impossible à classifier
 

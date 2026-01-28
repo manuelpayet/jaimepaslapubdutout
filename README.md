@@ -14,7 +14,7 @@ Le projet est composé de deux modules principaux :
 2. **Classifier** : Classification des sessions enregistrées
    - Conversion des sessions brutes en format structuré
    - Interface d'annotation console
-   - Catégories : À classifier, Publicité, Radio, Impossible à déterminer
+   - Catégories : À classifier, Publicité, Radio, Impossible à classifier
 
 ## Stack Technique
 

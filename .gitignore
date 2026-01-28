@@ -6,6 +6,7 @@ __pycache__/
 .Python
 env/
 venv/
+.venv/
 ENV/
 build/
 develop-eggs/
@@ -29,7 +30,10 @@ wheels/
 htmlcov/
 
 # IDE
-.vscode/
+.vscode/*
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
 .idea/
 *.swp
 *.swo
