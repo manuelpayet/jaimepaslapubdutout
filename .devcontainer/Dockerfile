@@ -6,6 +6,9 @@ RUN apt-get update && apt-get install -y \
     git \
     libffi-dev \
     sudo \
+
+    pulseaudio \
+    libsdl2-mixer-2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
 # Création d'un utilisateur non-root avec droits sudo

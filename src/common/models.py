@@ -35,4 +35,3 @@ class Block:
     audio_path: str
     transcription: str
     category: str = "A classifier"  # Default category
-    notes: Optional[str] = None

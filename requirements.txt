@@ -1,7 +1,11 @@
 # Audio processing
 openai-whisper>=20230314
 ffmpeg-python>=0.2.0
+pygame>=2.5.0
 
 # Utilities
 python-dotenv>=1.0.0
 pyyaml>=6.0
+
+# UI
+rich>=13.0.0

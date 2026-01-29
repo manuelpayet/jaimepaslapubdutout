@@ -87,7 +87,6 @@ class SessionReader:
                 audio_path=str(wav_file),
                 transcription=transcription,
                 category="A classifier",  # Default category
-                notes=None,
             )
 
             yield block
@@ -118,7 +117,6 @@ class SessionReader:
             audio_path=str(wav_file),
             transcription=transcription,
             category="A classifier",
-            notes=None,
         )
 
     def get_block_count(self) -> int:

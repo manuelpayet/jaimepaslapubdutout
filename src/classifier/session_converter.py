@@ -134,8 +134,7 @@ class SessionConverter:
                 timestamp TEXT NOT NULL,
                 audio_path TEXT NOT NULL,
                 transcription TEXT,
-                category TEXT DEFAULT 'A classifier',
-                notes TEXT
+                category TEXT DEFAULT 'A classifier'
             )
         """)
 
@@ -171,16 +170,15 @@ class SessionConverter:
         """
         cursor.execute(
             """
-            INSERT INTO blocks (block_number, timestamp, audio_path, transcription, category, notes)
-            VALUES (?, ?, ?, ?, ?, ?)
+            INSERT INTO blocks (block_number, timestamp, audio_path, transcription, category)
+            VALUES (?, ?, ?, ?, ?)
         """,
             (
                 block.block_number,
                 block.timestamp.isoformat(),
                 block.audio_path,
                 block.transcription,
-                block.category,
-                block.notes,
+                "A classifier",  # Default category
             ),
         )
 
