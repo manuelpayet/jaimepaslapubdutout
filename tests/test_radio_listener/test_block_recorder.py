@@ -139,10 +139,10 @@ class TestBlockRecorder:
     def test_update_metadata(self, recorder):
         """Test updating metadata."""
         recorder.update_metadata(
-            rtsp_url="rtsp://test.com/stream", whisper_model="base"
+            stream_url="rtsp://test.com/stream", whisper_model="base"
         )
 
-        assert recorder.metadata["rtsp_url"] == "rtsp://test.com/stream"
+        assert recorder.metadata["stream_url"] == "rtsp://test.com/stream"
         assert recorder.metadata["whisper_model"] == "base"
 
     def test_finalize_session(self, recorder, tmp_path):

@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 class RadioListenerConfig:
     """Configuration for the radio listener module."""
 
-    rtsp_url: str
+    stream_url: str  # URL of audio stream (RTSP, HTTP, HLS, etc.)
     block_duration: int = 10  # seconds
     sample_rate: int = 16000  # Hz (Whisper expects 16kHz)
     whisper_model: str = "base"  # tiny, base, small, medium, large
@@ -74,7 +74,8 @@ class ConfigLoader:
 
         # Load from environment variables (lowest priority)
         env_mapping = {
-            "RTSP_URL": "rtsp_url",
+            "STREAM_URL": "stream_url",
+            "RTSP_URL": "stream_url",  # Backward compatibility
             "BLOCK_DURATION": "block_duration",
             "SAMPLE_RATE": "sample_rate",
             "WHISPER_MODEL": "whisper_model",

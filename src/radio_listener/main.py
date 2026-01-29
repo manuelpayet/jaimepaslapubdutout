@@ -47,7 +47,7 @@ class RadioListener:
 
         # Initialize components
         self.audio_capture = AudioCapture(
-            rtsp_url=config.rtsp_url, sample_rate=config.sample_rate
+            stream_url=config.stream_url, sample_rate=config.sample_rate
         )
 
         self.transcriber = Transcriber(
@@ -82,7 +82,7 @@ class RadioListener:
 
             # Update metadata
             self.block_recorder.update_metadata(
-                rtsp_url=self.config.rtsp_url,
+                stream_url=self.config.stream_url,
                 block_duration=self.config.block_duration,
                 whisper_model=self.config.whisper_model,
             )
@@ -181,7 +181,12 @@ def parse_args():
         description="Radio Listener - Real-time audio transcription from RTSP stream"
     )
 
-    parser.add_argument("--rtsp-url", required=True, help="RTSP stream URL")
+    parser.add_argument(
+        "--stream-url", required=True, help="Audio stream URL (RTSP, HTTP, HLS, etc.)"
+    )
+    parser.add_argument(
+        "--rtsp-url", dest="stream_url", help="(Deprecated) Use --stream-url instead"
+    )
 
     parser.add_argument(
         "--block-duration",
@@ -223,7 +228,7 @@ def main():
     # Load configuration
     config = ConfigLoader.load_radio_listener_config(
         config_file=args.config,
-        rtsp_url=args.rtsp_url,
+        stream_url=args.stream_url,
         block_duration=args.block_duration,
         whisper_model=args.whisper_model,
         whisper_language=args.language,

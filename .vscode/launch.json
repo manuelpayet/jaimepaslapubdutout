@@ -9,8 +9,8 @@
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
             "args": [
-                "--rtsp-url",
-                "rtsp://example.com/stream",
+                "--stream-url",
+                "http://audio.bfmtv.com/rmcradio_128.mp3",
                 "--block-duration",
                 "10",
                 "--whisper-model",
@@ -31,8 +31,8 @@
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
             "args": [
-                "--rtsp-url",
-                "${input:rtspUrl}",
+                "--stream-url",
+                "${input:streamUrl}",
                 "--block-duration",
                 "10"
             ],
@@ -135,10 +135,10 @@
     ],
     "inputs": [
         {
-            "id": "rtspUrl",
+            "id": "streamUrl",
             "type": "promptString",
-            "description": "Enter RTSP stream URL",
-            "default": "rtsp://example.com/stream"
+            "description": "Enter audio stream URL (RTSP, HTTP, HLS, etc.)",
+            "default": "http://audio.bfmtv.com/rmcradio_128.mp3"
         },
         {
             "id": "sessionId",

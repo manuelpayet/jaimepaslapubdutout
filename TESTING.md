@@ -107,12 +107,17 @@ tests/
 
 ## Tests d'intégration
 
-Pour tester avec un vrai flux RTSP :
+Pour tester avec un vrai flux audio :
 
 ```bash
-# Définir l'URL RTSP
-export RTSP_URL="rtsp://your-stream-url"
+# Définir l'URL du flux audio
+export STREAM_URL="http://audio.bfmtv.com/rmcradio_128.mp3"
 
 # Lancer le listener (pas un test unitaire)
-python -m src.radio_listener.main --rtsp-url $RTSP_URL --block-duration 10
+python -m src.radio_listener.main --stream-url $STREAM_URL --block-duration 10
 ```
+
+URLs de test supportées :
+- HTTP/MP3 : `http://audio.bfmtv.com/rmcradio_128.mp3`
+- RTSP : `rtsp://example.com/stream`
+- HLS : `https://example.com/playlist.m3u8`

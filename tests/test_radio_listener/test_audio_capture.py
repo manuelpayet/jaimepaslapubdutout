@@ -18,12 +18,12 @@ class TestAudioCapture:
     def audio_capture(self):
         """Create an AudioCapture instance."""
         return AudioCapture(
-            rtsp_url="rtsp://test.com/stream", sample_rate=16000, buffer_size=10
+            stream_url="rtsp://test.com/stream", sample_rate=16000, buffer_size=10
         )
 
     def test_initialization(self, audio_capture):
         """Test audio capture initialization."""
-        assert audio_capture.rtsp_url == "rtsp://test.com/stream"
+        assert audio_capture.stream_url == "rtsp://test.com/stream"
         assert audio_capture.sample_rate == 16000
         assert audio_capture.buffer_size == 10
         assert audio_capture._process is None

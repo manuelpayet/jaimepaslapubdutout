@@ -22,7 +22,11 @@
       }
     }
   },
-  "postCreateCommand": "pip install -r requirements.txt -r requirements-dev.txt",
+  "postCreateCommand": "bash .devcontainer/post-install.sh",
+  "postStartCommand": "sudo chown -R vscode:vscode /home/vscode/.cache /home/vscode/.local 2>/dev/null || true",
   "forwardPorts": [],
-  "remoteUser": "vscode"
+  "remoteUser": "vscode",
+  "remoteEnv": {
+    "PATH": "/home/vscode/.local/bin:${containerEnv:PATH}"
+  }
 }

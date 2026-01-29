@@ -1,13 +1,13 @@
 # Radio Transcription & Classification
 
-Système de retranscription audio en temps réel d'un flux RTSP de radio avec classification des segments.
+Système de retranscription audio en temps réel de flux audio (RTSP, HTTP, HLS) avec classification des segments.
 
 ## Architecture
 
 Le projet est composé de deux modules principaux :
 
 1. **Radio Listener** : Écoute et retranscription en temps réel
-   - Capture audio via flux RTSP
+   - Capture audio via flux RTSP, HTTP ou HLS
    - Retranscription avec Whisper
    - Enregistrement par blocs de N secondes
 
@@ -39,8 +39,13 @@ Voir `.devcontainer/CACHE.md` pour plus de détails.
 
 ### Module Radio Listener
 ```bash
-python -m src.radio_listener.main --rtsp-url <URL> --block-duration <seconds>
+python -m src.radio_listener.main --stream-url <URL> --block-duration <seconds>
 ```
+
+Exemples d'URLs supportées :
+- HTTP/MP3 : `http://audio.bfmtv.com/rmcradio_128.mp3`
+- RTSP : `rtsp://example.com/stream`
+- HLS : `https://example.com/playlist.m3u8`
 
 ### Module Classifier
 ```bash
