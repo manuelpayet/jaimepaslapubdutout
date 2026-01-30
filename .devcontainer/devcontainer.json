@@ -4,6 +4,7 @@
     "dockerfile": "Dockerfile"
   },
   "mounts": [
+    "source=checksum-cache,target=/home/vscode/.cache/checksum-cache",
     "source=radio-pip-cache,target=/home/vscode/.cache/pip,type=volume",
     "source=radio-whisper-cache,target=/home/vscode/.cache/whisper,type=volume"
   ],
@@ -24,6 +25,11 @@
   },
   "postCreateCommand": "bash .devcontainer/post-install.sh",
   "postStartCommand": "sudo chown -R vscode:vscode /home/vscode/.cache /home/vscode/.local 2>/dev/null || true",
+  "runArgs": [
+    "--device=/dev/snd",
+    "-e", "PULSE_SERVER=unix:/run/user/1000/pulse/native",
+    "-v", "/run/user/1000/pulse:/run/user/1000/pulse"
+  ],
   "forwardPorts": [],
   "remoteUser": "vscode",
   "remoteEnv": {

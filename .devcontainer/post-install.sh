@@ -6,7 +6,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-CHECKSUM_FILE="/home/vscode/.cache/.requirements-checksum"
+CHECKSUM_FILE="/home/vscode/.cache/checksum-cache/.requirements-checksum"
 REQUIREMENTS_FILES="requirements.txt requirements-dev.txt"
 
 echo "🔧 Configuration de l'environnement..."
